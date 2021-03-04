@@ -1,0 +1,37 @@
+<!--
+  Written for GD Demon Ladder
+  (c) RFMX, 2021
+  contact me on Discord before using any part of the code
+  RFMX#4373
+
+  GD Ladder Website
+  Level query
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Levels - GD Demon Ladder</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <p> Level ID </p>
+    <form name="levelid" action="" method="get">
+      <input type="text" name="id" id="idresposne">
+      <input type="submit" value="Search">
+    </form>
+  </body>
+  <p id="leveldata"></p>
+</html>
+<script>
+  /*
+    extract parameters from URL
+  */
+  window.onload = function(){
+  var levelqm = window.location.search;
+  levelqm = new URLSearchParams(levelqm);
+  levelid = levelqm.get("id")
+  document.getElementById("leveldata").innerHTML = levelid;
+  }
+</script>
