@@ -1,0 +1,72 @@
+<!--
+  Written for GD Demon Ladder
+  (c) RFMX, with the help from MonsterGamer, 2021
+  contact me on Discord before using any part of the code
+  RFMX#4373
+
+  GD Ladder Website
+  Search by filters
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Search - GD Demon Ladder</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+	<img src="assets/gdladder_tk_logo.png" alt="gdladder.tk" class="logo" width="600"> <br>
+	<a href=".."><button class="direct">Home</button></a><a href="info.html"><button class="direct">About the project</button></a><a href="levels.html"><button class="direct">Search by ID</button></a><a href="filters.html"><button class="direct">Search by filters</button><a><a href="thankyou.html"><button class="direct">For those I want to thank</button></a>
+	<p class="text20">Here you can search for the demon you need! Other filters such as minimum and maximum tier and the official difficulty are also here for you to find demons to beat!</p>
+	<p class="text20">The tiers filter supports numbers with decimals. If you enter one, the system will check for the 2 d.p. tier of the demon. Otherwise, if you enter an integer, the system will check for the normal tier. The system sorts demons by the order of ID. Check the box if you want it to sort by Recent.</p>
+	<form name="filters" onsubmit="disableEmptyInputs(this)" action="" method="get">
+		<table style="margin-left: auto; margin-right: auto; margin-top: 2%; margin-bottom: 2%;">
+			<tr>
+				<th>Minimum tier</label></th>
+				<td><input type="text" name="tiermin" id="tiermin"></td>
+			</tr>
+			<tr>
+				<th>Maximum tier</th>
+				<td><input type="text" name="tiermax" id="tiermax"></td>
+			</tr>
+			<tr>
+				<th>In-game Difficulty</th>
+				<td>
+					<select name="official_diff" id="official_diff">
+						<option selected></option>
+						<option value="0">Official Level</option>
+						<option value="1">Easy Demon</option>
+						<option value="2">Medium Demon</option>
+						<option value="3">Hard Demon</option>
+						<option value="4">Insane Demon</option>
+						<option value="5">Extreme Demon</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>Name</th>
+				<td><input type="text" name="name" id="name"></td>
+			</tr>
+			<tr>
+				<th>Sort by Recent</th>
+				<td><input type="checkbox" name="recent" id="recent"></td>
+			</tr>
+			<tr>
+				<td colspan="2" id="filterssearch"><input type="submit" id="filterssubmit" value="Search">
+			</tr>
+		</table>
+    </form>
+	<button onclick="themechange()" class="theme">Change Theme</button>
+	<!--script type="text/python" src="scripts/filters.py"></script-->
+	<script src="scripts/script.js"></script>
+	<script type="text/javascript">
+	function disableEmptyInputs(form) {
+		var controls = form.elements;
+		for (var i=0, iLen=controls.length; i<iLen; i++) {
+			if (controls[i].value == '') controls[i].disabled = true
+		}
+	}
+	</script>
+  </body>
+</html>

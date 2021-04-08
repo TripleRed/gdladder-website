@@ -1,0 +1,61 @@
+<!--
+  Written for GD Demon Ladder
+  (c) RFMX, with the help from MonsterGamer, 2021
+  contact me on Discord before using any part of the code
+  RFMX#4373
+
+  GD Ladder Website
+  Debug
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Levels - GD Demon Ladder</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.9.1/brython.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.9.1/brython_stdlib.js"></script>
+  </head>
+  <body onload="brython()">
+	<div id="leveltable">
+	<table>
+		<tr>
+			<th>Level ID</th>
+			<td>
+				<form name="levelid" action="" method="get">
+      			<input type="text" name="id" id="idresposne">
+    			<input type="submit" value="Search">
+    			</form>
+			</td>
+		</tr>
+		<tr>
+			<th>Level Name</th>
+			<td><p id="levelname"></p></td>
+		</tr>
+		<tr>
+			<th>Level Creator</th>
+			<td><p id="levelcreator"></p></td>
+		</tr>
+		<tr>
+			<th>Level song</th>
+			<td><p id="levelsong"></p></td>
+		</tr>
+		<tr>
+			<th>Official Difficulty</th>
+			<td><p id="leveldiff"></p></td>
+		</tr>
+		<tr>
+			<th>Tier</th>
+			<td><p id="leveltier"></p></td>
+		</tr>
+		<tr>
+			<th>Submitted ratings</th>
+			<td><p id="levelratings"></p></td>
+		</tr>
+	</table>
+	</div>
+    <script type="text/python" src="scripts/leveldata.py"></script>
+	<script src="scripts/script.js"></script>
+  </body>
+</html>

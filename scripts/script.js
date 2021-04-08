@@ -1,21 +1,5 @@
-/*
-function testing(){
-  document.getElementById("test").innerHTML = "connected";
-  return;
-}
-*/
-var theme = 0;
-var themechosen = localStorage.getItem("theme");
-if (!typeof(themechosen) == "undefined") {
-  theme = themechosen;
-  localStorage.setItem("theme",theme);
-}
-function themechange() {
-  theme += 1;
-  if (theme > 1) {
-    theme = 0;
-  };
-  switch (theme) {
+function switchth() {
+	switch (theme) {
     case 0:
     document.body.style.backgroundColor = "white";
     document.body.style.color = "black";
@@ -25,5 +9,22 @@ function themechange() {
     document.body.style.color = "white";
     break;
   };
-  localStorage.setItem("theme",theme);
 };
+
+function themechange() {
+	theme += 1;
+	if (theme > 1) {
+		theme = 0;
+	};
+	switchth();
+	localStorage.setItem("theme",theme);
+};
+
+var theme = 0;
+var themechosen = parseInt(localStorage.getItem("theme"));
+theme = themechosen;
+if (!typeof(themechosen) == "undefined") {
+	theme = themechosen;
+	localStorage.setItem("theme",theme);
+};
+switchth();
