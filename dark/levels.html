@@ -1,0 +1,39 @@
+<!--
+  Written for GD Demon Ladder
+  (c) RFMX, with the help from MonsterGamer, 2021
+  contact me on Discord before using any part of the code
+  RFMX#4373
+
+  GD Ladder Website
+  Level query
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Levels - GD Demon Ladder</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.9.1/brython.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.9.1/brython_stdlib.js"></script>
+  </head>
+  <body onload="brython()">
+    <img src="../assets/gdladder_tk_logo.png" alt="gdladder.tk" id="logo" width="600"> <br>
+	<a href="info.html"><button class="direct">About the project</button></a><a href="levels.html"><button class="direct">Search by ID</button></a><a href="search.html"><button class="direct">Search by filters</button><a><a href="thankyou.html"><button class="direct">For those I want to thank</button></a>
+	<p> Level ID </p>
+    <form name="levelid" action="" method="get">
+      <input type="text" name="id" id="idresposne">
+      <input type="submit" value="Search">
+    </form>
+    <p id="test"></p>
+    <p id="levelname"></p>
+    <p id="levelcreator"></p>
+    <p id="levelsong"></p>
+    <p id="leveldiff"></p>
+    <p id="leveltier"></p>
+    <p id="levelratings"></p>
+	<button onclick="themechange()" class="theme">Change Theme</button>
+    <script type="text/python" src="../scripts/leveldata.py"></script>
+    <script src="../scripts/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!--
+  Written for GD Demon Ladder
+  (c) RFMX, with the help from MonsterGamer, 2021
+  contact me on Discord before using any part of the code
+  RFMX#4373
+
+  GD Ladder Website
+  Search by ID
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Levels - GD Demon Ladder</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.9.1/brython.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.9.1/brython_stdlib.js"></script>
+	<script
+		src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+		crossorigin="anonymous"></script>
+  </head>
+  <body onload="brython()">
+    <img src="assets/gdladder_tk_logo.png" alt="gdladder.tk" class="logo" width="600"> <br>
+	<a href=".."><button class="direct">Home</button></a><a href="info.html"><button class="direct">About the project</button></a><a href="levels.html"><button class="direct">Search by ID</button></a><a href="filters.html"><button class="direct">Search by filters</button><a><a href="thankyou.html"><button class="direct">For those I want to thank</button></a>
+	<p class="text">Enter the level ID to search for the tier of a demon! If you need to know the ID of your demon, you can check out the <a href="filters.html">Search by filters</a> page!</p>
+	<p class="text">Official demons have the ID of 1 to 3, in the order of appearance in-game.</p>
+	<div id="leveltable">
+	<table style="margin-left: auto; margin-right: auto; margin-top: 2%; margin-bottom: 2%;">
+		<tr>
+			<th>Level ID</th>
+			<td>
+				<form name="form" onsubmit="disableEmptyInputs(this)" action="" method="get">
+    				<input type="text" name="id" id="idresponse">
+    				<input type="submit" value="Submit">
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<th>Level Name</th>
+			<td><p id="levelname"></p></td>
+		</tr>
+		<tr>
+			<th>Level Creator</th>
+			<td><p id="levelcreator"></p></td>
+		</tr>
+		<tr>
+			<th>Level Song</th>
+			<td><p id="levelsong"></p></td>
+		</tr>
+		<tr>
+			<th>Official Difficulty</th>
+			<td><p id="leveldiff"></p></td>
+		</tr>
+		<tr>
+			<th>Tier</th>
+			<td><p id="leveltier"></p></td>
+		</tr>
+		<tr>
+			<th>Submitted ratings</th>
+			<td><p id="levelratings"></p></td>
+		</tr>
+	</table>
+	</div>
+	<button onclick="themechange()" class="theme">Change Theme</button>
+    <script type="text/python" src="scripts/leveldata.py"></script>
+	<script src="scripts/script.js"></script>
+	<script type="text/javascript">
+	function disableEmptyInputs(form) {
+		var controls = form.elements;
+		for (var i=0, iLen=controls.length; i<iLen; i++) {
+			if (controls[i].value == '') controls[i].disabled = true;
+		}
+	}
+	</script>
+  </body>
+</html>
