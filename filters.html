@@ -14,12 +14,17 @@
     <meta name="viewport" content="width=device-width">
     <title>Search - GD Demon Ladder</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+	<script src="https://cdn.jsdelivr.net/npm/brython@3.9.1/brython.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.9.1/brython_stdlib.js"></script>
   </head>
-  <body>
+  <body onload="brython()">
 	<img src="assets/gdladder_tk_logo.png" alt="gdladder.tk" class="logo" width="600"> <br>
 	<a href=".."><button class="direct">Home</button></a><a href="info.html"><button class="direct">About the project</button></a><a href="levels.html"><button class="direct">Search by ID</button></a><a href="filters.html"><button class="direct">Search by filters</button><a><a href="thankyou.html"><button class="direct">For those I want to thank</button></a>
+	<div id="filtersheader">
+	<h1>Search by filters</h1>
 	<p class="text20">Here you can search for the demon you need! Other filters such as minimum and maximum tier and the official difficulty are also here for you to find demons to beat!</p>
 	<p class="text20">The tiers filter supports numbers with decimals. If you enter one, the system will check for the 2 d.p. tier of the demon. Otherwise, if you enter an integer, the system will check for the normal tier. The system sorts demons by the order of ID. Check the box if you want it to sort by Recent.</p>
+	</div>
 	<form name="filters" onsubmit="disableEmptyInputs(this)" action="" method="get">
 		<table style="margin-left: auto; margin-right: auto; margin-top: 2%; margin-bottom: 2%;">
 			<tr>
@@ -57,14 +62,16 @@
 			</tr>
 		</table>
     </form>
+	<p id="searchstats"></p>
+	<div id="filtersresults"></div>
 	<button onclick="themechange()" class="theme">Change Theme</button>
-	<!--script type="text/python" src="scripts/filters.py"></script-->
+	<script type="text/python" src="scripts/filters.py"></script>
 	<script src="scripts/script.js"></script>
 	<script type="text/javascript">
 	function disableEmptyInputs(form) {
 		var controls = form.elements;
 		for (var i=0, iLen=controls.length; i<iLen; i++) {
-			if (controls[i].value == '') controls[i].disabled = true
+			if (controls[i].value == '') controls[i].disabled = true;
 		}
 	}
 	</script>

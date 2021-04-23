@@ -1,4 +1,10 @@
+/*
+This CSS document is first drafted by MonsterGamer,
+then I come in and make everything messy.
+Props to him for writing some of the CSS under here or inside HTML scripts!
+*/
 @import url(https://fonts.googleapis.com/css2?family=Montserrat&display=swap);
+/* General */
 body {
 	font-family: Montserrat;
 	text-align: center;
@@ -7,6 +13,20 @@ body {
 strong {
 	font-size: 18px; 
 }
+/* Table */
+table, th, td {
+	border: 3px solid #ffaa00;
+	height: 50px;
+	border-collapse: collapse;
+}
+th, td {
+	width: 400px;
+	font-size: 18px;
+}
+#leveltable {
+	text-align: center;
+}
+/* Class-specific */
 .text {
 	margin: 30px 30%;
 	text-align: left;
@@ -23,22 +43,11 @@ strong {
 	font-family: Montserrat;
 	font-size: 16px;
 	border-style: none;
-	height: 25px;
+	height: 30px;
 	width: 95%;
 	background-color: #ffaa00;
 }
-table, th, td {
-	border: 3px solid #ffaa00;
-	height: 50px;
-	border-collapse: collapse;
-}
-th, td {
-	width: 400px;
-	font-size: 18px;
-}
-#leveltable {
-	text-align: center;
-}
+/* Navigation buttons, or the direct class */
 .direct {
 	font-family: Montserrat;
 	font-size: 18px;
@@ -56,6 +65,7 @@ th, td {
 	background-color: white;
 	border: 5px solid #ffaa00;
 }
+/* Form inputs */
 .idinput {
 	width: 120px;
 }
@@ -73,7 +83,81 @@ input[type=text] {
 	height: 100%;
 	font-size: 16px;
 	background-color: #ffaa00;
+	transition-duration: 0.3s;
+}
+#filterssubmit:hover {
+	background-color: #e59900;
+}
+#filterssubmit:active {
+	transition-duration: 0s;
+	background-color: white;
+	border: 5px solid #ffaa00;
 }
 #filterssearch {
 	padding: 0px;
+}
+.fillcell {
+	font-family: Montserrat;
+	font-size: 18px;
+	border-style: none;
+	height: 100%;
+	width: 100%;
+	background-color: #ffaa00;
+	transition-duration: 0.3s;
+}
+.fillcell:hover {
+	background-color: #e59900;
+}
+.fillcell:active {
+	transition-duration: 0s;
+	background-color: white;
+	border: 5px solid #ffaa00;
+}
+#centertable {
+	backgorund-color: #000000;
+	border: 3px solid #ffaa00;
+	border-collapse: collapse;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+.filterstd {
+	width: 250px;
+	height: 30px;
+	font-size: 18px;
+}
+.filtersth {
+	width: 250px;
+	background-color: #ffaa00;
+	height: 40px;
+	font-size: 18px;
+}
+/* Header backgrounds */
+#indexheader {
+	background-image: url('assets/impact-x-blur.png');
+	background-repeat: no-repeat;
+	background-position: 50% 55%;
+	margin: 30px 0px;
+	padding: 15px;
+	color: white;
+	text-shadow: 2px 2px 3px #000000;
+}
+#levelsheader {
+	background-image: url('assets/magnetic-boost-blur.png');
+	background-repeat: no-repeat;
+	background-position: 50% 30%;
+	margin: 30px 0px;
+	padding: 15px;
+	color: white;
+	text-shadow: 2px 2px 3px #000000;
+}
+#filtersheader {
+	background-image: url('assets/impostor.png');
+	background-repeat: no-repeat;
+	background-position: 50% 40%;
+	margin: 30px 0px;
+	padding: 15px;
+	color: white;
+	text-shadow: 2px 2px 3px #000000;
 }

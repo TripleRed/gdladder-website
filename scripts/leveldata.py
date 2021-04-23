@@ -13,7 +13,7 @@ import json
 
 # * Changing variables *
 key = 'AIzaSyC5EjLYGlY6W6zfkcQiQ6nK74zk_7yEjHk' # API key
-default_demon = '4727649' # Demon for no input, usually weekly
+default_demon = '68408784' # Demon for no input, usually weekly
 
 # * Load ID list *
 res = open("../gdl_list_ids.json","r") # open file
@@ -53,11 +53,14 @@ def on_complete(req):
 
 	# * prints stuff on screen *
 	# index is based on column oreder
-	document['levelname'] <= r_json[0] + ' (' + r_json[4] + ')'
+	document['levelname'] <= r_json[0] + ' ('
+	gdbrowser_url = 'https://gdbrowser.com/' + r_json[4]
+	document['levelname'] <= html.A(r_json[4], href=gdbrowser_url, target="_blank")
+	document['levelname'] <= ')'
 	document['levelcreator'] <= r_json[1]
 	document['levelsong'] <= r_json[2]
 	document['leveldiff'] <= r_json[3]
-	if r_json[5] != "#DIV/0!":
+	if r_json[5] != "unrated":
 		document['leveltier'] <= 'Tier ' + r_json[5] + ' (' + r_json[6] + ' corr to 2 d.p.)'
 		# document['levelratings'] <= 'Submitted ratings:'
 		# document['levelratings'] <= html.BR()
