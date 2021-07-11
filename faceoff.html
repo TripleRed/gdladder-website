@@ -1,0 +1,28 @@
+<!--
+	Written for GD Demon Ladder
+	(c) RFMX, with the help from MonsterGamer, 2021
+	contact me on Discord before using any part of the code
+	RFMX#4373
+
+	GD Ladder Website
+	Demon Face-off
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Demon Face-off - GD Demon Ladder</title>
+		<link href="style.css" rel="stylesheet" type="text/css" />
+		<script src="https://cdn.jsdelivr.net/npm/brython@3.9.1/brython.js"></script>
+    	<script src="https://cdn.jsdelivr.net/npm/brython@3.9.1/brython_stdlib.js"></script>
+	</head>
+	<body onload="brython()">
+		<img src="assets/gdladder_tk_logo.png" alt="gdladder.tk" class="logo" width="600"> <br>
+		<a href=".."><button class="direct">Home</button></a><a href="info.html"><button class="direct">About the project</button></a><a href="levels.html"><button class="direct">Search by ID</button></a><a href="filters.html"><button class="direct">Search by filters</button><a><a href="thankyou.html"><button class="direct">For those I want to thank</button></a>
+		<div id="testping" />
+		<div id="faceoffresponse"></div>
+		<script type="text/python" src="scripts/faceoff.py"></script>
+		<script src="scripts/script.js"></script>
+	</body>
+</html>

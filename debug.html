@@ -13,13 +13,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Search - GD Demon Ladder</title>
+    <title>Debug - GD Demon Ladder</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
 	<script src="https://cdn.jsdelivr.net/npm/brython@3.9.1/brython.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/brython@3.9.1/brython_stdlib.js"></script>
   </head>
-  <body>
-	<script type="text/python" src="scripts/filters.py"></script>
+  <body onload="brython()">
 	<script src="scripts/script.js"></script>
 	<script type="text/javascript">
 	function disableEmptyInputs(form) {
@@ -29,5 +28,6 @@
 		}
 	}
 	</script>
+	<script type="text/python" src="scripts/debug.py"></script>
   </body>
 </html>

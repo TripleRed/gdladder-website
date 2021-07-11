@@ -3,6 +3,7 @@ This CSS document is first drafted by MonsterGamer,
 then I come in and make everything messy.
 Props to him for writing some of the CSS under here or inside HTML scripts!
 */
+
 @import url(https://fonts.googleapis.com/css2?family=Montserrat&display=swap);
 /* General */
 body {
@@ -113,7 +114,7 @@ input[type=text] {
 	background-color: white;
 	border: 5px solid #ffaa00;
 }
-#centertable {
+#centertable, #unratedtable {
 	backgorund-color: #000000;
 	border: 3px solid #ffaa00;
 	border-collapse: collapse;

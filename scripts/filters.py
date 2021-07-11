@@ -1,18 +1,11 @@
 # Written for GD Demon Ladder
 # by RFMX (c) 2021
 
-# Time to make it functional in Python
-
-# TODO
-# (V) convert the request into an Ajax call
-# (V) convert all print statements and input functions into HTML elements
-# (V) figure out how to construct a button with link in Brython
-
 # Comments refer to the previous line except for headers, marked with *
 
 # ** Setup **
 from browser import document, ajax, html
-import json
+import json, random
 
 # ** Variables that needs constant updates **
 # thank you Tom Scott to remind me of future compatibility
@@ -24,7 +17,7 @@ referencelist = [""]
 def ceiling(number):
 	k = 0
 	while True:
-		if float(k) > float(number): return k
+		if float(k) >= float(number): return k
 		else: k += 1
 # ceiling function: only works for positive numbers, but that is enough, I am too lazy to port the library
 
@@ -64,10 +57,19 @@ def on_complete(req):
 		errorcount += 1
 
 	try:
-		if str(document.query['recent']) == 'on':
+		if str(document.query['sort']) == 'recent':
+			sort = "recent"
 			recent = 1
-		else: recent = 0
+		elif str(document.query['sort']) == 'byid':
+			sort = "byid"
+			recent = 0
+		elif str(document.query['sort']) == 'random':
+			sort = "random"
+			recent = 0
+		else:
+			raise Exception("Unknown parameter")
 	except:
+		sort = "byid"
 		recent = 0
 		errorcount += 1
 
@@ -97,8 +99,8 @@ def on_complete(req):
 		querystring += ("official_diff=" + official_diff + "&")
 	if name != '':
 		querystring += ("name=" + name + "&")
-	if recent == 1:
-		querystring += ("recent=on&")
+	if sort != '':
+		querystring += ("sort=" + sort + "&")
 	if reference == 1:
 		querystring += ("reference=on&")
 	querystring = querystring[0:-1]
@@ -208,6 +210,9 @@ def on_complete(req):
 
 	# ** Listing results **
 
+	# * shuffle list if needed *
+	if sort == "random": random.shuffle(result)
+
 	# * setup *
 	table = html.TABLE('', id='centertable')
 
@@ -253,16 +258,18 @@ def on_complete(req):
 	nextpage = int(page) + 1
 	nextpageurl = "filters.html" + querystring + "&page=" + str(nextpage)
 
-	if int(page) != 0: lastpage = html.A(html.BUTTON("Last page", Class="fillcell"), href=lastpageurl)
+	if (int(page) != 0) and (sort != "random"): lastpage = html.A(html.BUTTON("Last page", Class="fillcell"), href=lastpageurl)
 	else: lastpage = ""
 
-	if int(page) != (int(totalpages) - 1): nextpage = html.A(html.BUTTON("Next page", Class="fillcell"), href=nextpageurl)
+	if (int(page) != (int(totalpages) - 1)) and (sort != "random"): nextpage = html.A(html.BUTTON("Next page", Class="fillcell"), href=nextpageurl)
 	else: nextpage = ""
 
 	table <= html.TR(html.TD(lastpage, Class="filtersth", colspan=colno) + html.TD(nextpage, Class="filtersth", colspan=colno))
 
 	if noresults:
 		document['searchstats'] <= 'No results.'
+	elif sort == "random":
+		document['searchstats'] <= str(totalresults) + ' levels found but only 10 random results are shown.'
 	else:
 		document['searchstats'] <= str(totalresults) + ' levels found shown in ' + str(totalpages) + ' pages'
 
